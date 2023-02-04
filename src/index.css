@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap");
+
+:root {
+  font-family: "Londrina Solid", cursive;
+  font-weight: 400;
+
+  color: black;
+  background: rgb(51, 55, 55);
+  background: linear-gradient(
+    0deg,
+    rgba(51, 55, 55, 1) 0%,
+    rgba(18, 17, 16, 1) 100%
+  );
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  /* background-color: rgba(242, 255, 0, 0.05); */
+  /* outline: 1px solid red; */
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.App {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.app-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+header {
+  align-items: center;
+  width: 100%;
+  display: flex;
+  padding: 0;
+  height: 8rem;
+  margin: 2rem 0;
+}
+
+header > h1 {
+  font-size: 10rem;
+  color: white;
+  letter-spacing: 1rem;
+  margin-left: 3rem;
+  text-transform: uppercase;
+}
+.logo {
+  width: 9rem;
+  height: 9rem;
+  opacity: 0.75;
+}
+.beer-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 100%;
+  height: 70vh;
+  gap: 0.25rem;
+}
+.beer-card {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 0 1rem;
+  width: 45%;
+  max-height: 6.25rem;
+  /* border: 1px solid yellow; */
+  background-color: rgba(255, 255, 0, 0.025);
+}
+
+.beer-card > div > img {
+  width: 1.25rem;
+  height: auto;
+}
+
+.order-container {
+  min-width: 2rem;
+  margin-right: 1.5rem;
+}
+.order-text {
+  text-align: right;
+  font-size: 2.5rem;
+}
+.beer-text {
+  margin-left: 1.5rem;
+  font-size: 2rem;
+  font-weight: 300;
+  letter-spacing: 0.25rem;
+}
+
+.beer-text,
+.order-text {
+  color: white;
+}
