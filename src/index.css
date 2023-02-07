@@ -6,6 +6,7 @@
 
   color: black;
   background: rgb(51, 55, 55);
+  /* todo update background with photo */
   background: linear-gradient(
     0deg,
     rgba(51, 55, 55, 1) 0%,
@@ -106,3 +107,4 @@ header > h1 {
 .order-text {
   color: white;
 }
+
