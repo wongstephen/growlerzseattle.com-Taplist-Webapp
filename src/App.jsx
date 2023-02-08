@@ -4,9 +4,9 @@ import medium from "../public/assets/beericons/medium.gif";
 import dark from "../public/assets/beericons/dark.gif";
 import stout from "../public/assets/beericons/stout.gif";
 import logo from "../public/assets/logo-clear-bg.webp";
+import { BeerItem } from "./BeerItem";
 
 function App() {
-
   // todo need axios api for graphql
   const initalBeerState = {
     "Everybody Hazy IPA": medium,
@@ -14,14 +14,9 @@ function App() {
     "Fort George Three Way IPA": medium,
     "Seapine Super Super Super Super Super Super Super Super Cripsy IPA": dark,
     "Fair Isle Bobby": light,
-    "Fair Isle Bobby2": light,
-    "Halycon Amber2": dark,
-    "Halycon Amber3": dark,
     "Lowercase Blonde": light,
     "Halycon Amber": dark,
     "Fremont Really Really Really Really Winter Ale": dark,
-    "Fremont Really Really Really Really Winter Ale1": dark,
-    "Fremont Really Really Really Really Winter Ale2": dark,
   };
 
   const [beerData, setBeerDat] = useState(initalBeerState);
@@ -35,20 +30,37 @@ function App() {
           </div>
           <h1>Growlerz Beer Menu</h1>
         </header>
+
         <div className="beer-container">
-          {Object.keys(beerData).map((beer, idx) => {
-            return (
-              <div key={beer + idx} className="beer-card">
-                <div className="order-container">
-                  <p className="order-text">{idx + 1}.</p>
-                </div>
-                <div>
-                  <img src={beerData[beer]} />
-                </div>
-                <p className="beer-text">{beer}</p>
-              </div>
-            );
-          })}
+          <div className="beer-item-container">
+            {Object.keys(beerData)
+              .slice(0, 4)
+              .map((beer, idx) => {
+                return (
+                  <BeerItem
+                    beer={beer}
+                    img={beerData[beer]}
+                    idx={idx}
+                    key={idx}
+                  />
+                );
+              })}
+          </div>
+
+          <div className="beer-item-container">
+            {Object.keys(beerData)
+              .slice(4, 8)
+              .map((beer, idx) => {
+                return (
+                  <BeerItem
+                    beer={beer}
+                    img={beerData[beer]}
+                    idx={idx + 4}
+                    key={idx}
+                  />
+                );
+              })}
+          </div>
         </div>
       </div>
     </div>
