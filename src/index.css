@@ -44,6 +44,16 @@ body {
   margin: 0 auto;
 }
 
+.loading-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 6rem;
+  color: rgba(51, 55, 55, 1);
+}
+
 header {
   align-items: center;
   width: 100%;
@@ -54,7 +64,7 @@ header {
 }
 
 header > h1 {
-  font-size: 8rem;
+  font-size: clamp(5rem, 75%, 10rem);
   color: white;
   letter-spacing: 1rem;
   margin-left: 3rem;

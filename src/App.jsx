@@ -1,67 +1,57 @@
+import Header from "./Header";
+import BeerList from "./BeerList";
 import { useState } from "react";
-import light from "../public/assets/beericons/light.gif";
-import medium from "../public/assets/beericons/medium.gif";
-import dark from "../public/assets/beericons/dark.gif";
-import stout from "../public/assets/beericons/stout.gif";
-import logo from "../public/assets/logo-clear-bg.webp";
-import { BeerItem } from "./BeerItem";
+import useAxios from "./hooks/useAxios";
+import axios from "./apis/axios";
 
+// style components
+// todo need axios api for graphql
 function App() {
-  // todo need axios api for graphql
-  const initalBeerState = {
-    "Everybody Hazy IPA": medium,
-    "Great Notion Oatmeal Stout": stout,
-    "Fort George Three Way IPA": medium,
-    "Seapine Super Super Super Super Super Super Super Super Cripsy IPA": dark,
-    "Fair Isle Bobby": light,
-    "Lowercase Blonde": light,
-    "Halycon Amber": dark,
-    "Fremont Really Really Really Really Winter Ale": dark,
-  };
+  const query = `
+    query {
+      tapList {
+        data {
+          attributes {
+            BeerItem1
+            BeerItem2
+            BeerItem3
+            BeerItem4
+            BeerItem5
+            BeerItem6
+            BeerItem7
+            BeerItem8
+            BeerType1
+            BeerType2
+            BeerType3
+            BeerType4
+            BeerType5
+            BeerType6
+            BeerType7
+            BeerType8
+          }
+        }
+      }
+    }
+  `;
 
-  const [beerData, setBeerDat] = useState(initalBeerState);
+  const [beerData, setBeerData] = useState({});
+  const [data, error, loading] = useAxios({
+    axiosInstance: axios,
+    method: "POST",
+    url: "/",
+    requestConfig: { query },
+    data: {},
+  });
 
-  return (
+  const beerList = data?.data.tapList.data.attributes;
+  console.log(beerList);
+  return loading ? (
+    <div className="loading-container">loading</div>
+  ) : (
     <div className="App">
       <div className="app-container">
-        <header>
-          <div>
-            <img src={logo} className="logo" />
-          </div>
-          <h1>Growlerz Beer Menu</h1>
-        </header>
-
-        <div className="beer-container">
-          <div className="beer-item-container">
-            {Object.keys(beerData)
-              .slice(0, 4)
-              .map((beer, idx) => {
-                return (
-                  <BeerItem
-                    beer={beer}
-                    img={beerData[beer]}
-                    idx={idx}
-                    key={idx}
-                  />
-                );
-              })}
-          </div>
-
-          <div className="beer-item-container">
-            {Object.keys(beerData)
-              .slice(4, 8)
-              .map((beer, idx) => {
-                return (
-                  <BeerItem
-                    beer={beer}
-                    img={beerData[beer]}
-                    idx={idx + 4}
-                    key={idx}
-                  />
-                );
-              })}
-          </div>
-        </div>
+        <Header>Growlerz Beer Menu</Header>
+        <BeerList beerData={beerList} />
       </div>
     </div>
   );

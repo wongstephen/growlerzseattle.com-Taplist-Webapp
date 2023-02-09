@@ -1,6 +1,7 @@
 import React from "react";
 
-export const BeerItem = ({ beer, idx, img }) => {
+
+const BeerItem = ({ beer, idx, img }) => {
   return (
     <div className="beer-card">
       <div className="order-container">
@@ -13,3 +14,5 @@ export const BeerItem = ({ beer, idx, img }) => {
     </div>
   );
 };
+
+export default BeerItem;
