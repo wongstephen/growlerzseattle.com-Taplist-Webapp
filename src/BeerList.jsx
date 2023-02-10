@@ -1,9 +1,9 @@
 import React from "react";
 import BeerItem from "./BeerItem";
-import light from "../public/assets/beericons/light.gif";
-import medium from "../public/assets/beericons/medium.gif";
-import dark from "../public/assets/beericons/dark.gif";
-import stout from "../public/assets/beericons/stout.gif";
+import light from "/assets/beericons/light.gif";
+import medium from "/assets/beericons/medium.gif";
+import dark from "/assets/beericons/dark.gif";
+import stout from "/assets/beericons/stout.gif";
 
 const BeerList = ({ beerData }) => {
   const leftList = Object.values(beerData).slice(0, 4);

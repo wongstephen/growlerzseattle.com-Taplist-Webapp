@@ -4,7 +4,7 @@ import { useState } from "react";
 import useAxios from "./hooks/useAxios";
 import axios from "./apis/axios";
 
-function Home({ homeRef }) {
+function Home() {
   const query = `
     query {
       tapList {
@@ -44,11 +44,11 @@ function Home({ homeRef }) {
   const beerList = data?.data.tapList.data.attributes;
 
   return loading ? (
-    <div className="loading-container" id="home-section" ref={homeRef}>
+    <div className="loading-container" id="home-section">
       loading
     </div>
   ) : (
-    <div className="app-container" id="home-section" ref={homeRef}>
+    <div className="app-container" id="home-section">
       <Header>Growlerz Beer Menu</Header>
       <BeerList beerData={beerList} />
     </div>

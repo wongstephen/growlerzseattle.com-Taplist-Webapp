@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../public/assets/logo-clear-bg.webp";
+import logo from "/assets/logo-clear-bg.webp";
 
 const Header = ({ children }) => {
   return (

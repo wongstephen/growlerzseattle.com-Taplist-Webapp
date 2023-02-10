@@ -7,28 +7,28 @@ const App = () => {
   const eventsRef = useRef(null);
 
   const views = [homeRef, eventsRef];
-  const [currentIdx, setCurrentIdx] = useState(0);
+  const [currIdx, setCurrIdx] = useState(0);
+  // const [delay, setDelay] = useState(10000);
 
+  /*   let delay = 10000;
   // todo implement scrolling carasoul
-  // let idx = 0;
-  // function carasoul() {
-  //   setInterval(() => {
-  //     if (idx < 1) {
-  //       idx = 0;
-  //     } else {
-  //       idx++;
-  //     }
-  //     views[1].current.scrollIntoView();
-  //     console.log(idx);
-  //     // setCurrentIdx((prev) => prev++);
-  //   }, 10000);
-  // }
-  // carasoul();
+  useEffect(() => {
+    const to = setTimeout(() => {
+      views[currIdx].current.scrollIntoView();
+      setCurrIdx((prevIdx) => (prevIdx === views.length - 1 ? 0 : prevIdx + 1));
+      // setDelay((prev) => (prev === 1000 ? 5000 : 1000));
+    }, 10000);
+    clearInterval(to);
+  }, [currIdx]); */
 
   return (
     <div className="app">
-      <Home homeRef={homeRef} />
-      <Events eventsRef={eventsRef} />
+      <div ref={homeRef}>
+        <Home />
+      </div>
+      <div ref={eventsRef}>
+        <Events />
+      </div>
     </div>
   );
 };

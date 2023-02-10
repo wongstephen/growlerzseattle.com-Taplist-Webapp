@@ -1,8 +1,8 @@
 import React from "react";
 
-const Events = ({ eventsRef }) => {
+const Events = () => {
   return (
-    <div id="event-section" ref={eventsRef}>
+    <div id="event-section">
       <div className="event-container">Events</div>
     </div>
   );
