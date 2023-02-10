@@ -25,6 +25,5 @@ dist-ssr
 
 dev-files/
 
-
 .env
 .env.local

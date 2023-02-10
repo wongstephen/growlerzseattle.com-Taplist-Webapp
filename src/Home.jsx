@@ -48,7 +48,7 @@ function Home() {
       loading
     </div>
   ) : (
-    <div className="app-container" id="home-section">
+    <div className="home-container" id="home-section">
       <Header>Growlerz Beer Menu</Header>
       <BeerList beerData={beerList} />
     </div>

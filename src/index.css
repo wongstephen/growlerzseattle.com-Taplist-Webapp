@@ -37,6 +37,12 @@ body {
 }
 
 /* homepage */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
 header {
   display: flex;
   align-items: center;
