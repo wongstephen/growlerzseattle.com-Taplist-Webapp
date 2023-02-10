@@ -1,16 +1,17 @@
 import React from "react";
 
-
 const BeerItem = ({ beer, idx, img }) => {
   return (
-    <div className="beer-card">
-      <div className="order-container">
-        <p className="order-text">{idx + 1}.</p>
+    <div className="beer-card-container">
+      <div className="beer-card-num">
+        <p>{idx + 1}.</p>
       </div>
-      <div>
+      <div className="beer-card-img">
         <img src={img} />
       </div>
-      <p className="beer-text">{beer}</p>
+      <div className="beer-card-title">
+        <p>{beer}</p>
+      </div>
     </div>
   );
 };

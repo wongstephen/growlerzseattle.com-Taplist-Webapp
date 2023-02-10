@@ -1,60 +1,36 @@
-import Header from "./Header";
-import BeerList from "./BeerList";
-import { useState } from "react";
-import useAxios from "./hooks/useAxios";
-import axios from "./apis/axios";
+import { useEffect, useRef, useState } from "react";
+import Events from "./Events";
+import Home from "./Home";
 
-// style components
-// todo need axios api for graphql
-function App() {
-  const query = `
-    query {
-      tapList {
-        data {
-          attributes {
-            BeerItem1
-            BeerItem2
-            BeerItem3
-            BeerItem4
-            BeerItem5
-            BeerItem6
-            BeerItem7
-            BeerItem8
-            BeerType1
-            BeerType2
-            BeerType3
-            BeerType4
-            BeerType5
-            BeerType6
-            BeerType7
-            BeerType8
-          }
-        }
-      }
-    }
-  `;
+const App = () => {
+  const homeRef = useRef(null);
+  const eventsRef = useRef(null);
 
-  const [beerData, setBeerData] = useState({});
-  const [data, error, loading] = useAxios({
-    axiosInstance: axios,
-    method: "POST",
-    url: "/",
-    requestConfig: { query },
-    data: {},
-  });
+  const views = [homeRef, eventsRef];
+  const [currentIdx, setCurrentIdx] = useState(0);
 
-  const beerList = data?.data.tapList.data.attributes;
-  console.log(beerList);
-  return loading ? (
-    <div className="loading-container">loading</div>
-  ) : (
-    <div className="App">
-      <div className="app-container">
-        <Header>Growlerz Beer Menu</Header>
-        <BeerList beerData={beerList} />
-      </div>
+  // todo implement scrolling carasoul
+  // let idx = 0;
+  // function carasoul() {
+  //   setInterval(() => {
+  //     if (idx < 1) {
+  //       idx = 0;
+  //     } else {
+  //       idx++;
+  //     }
+  //     views[1].current.scrollIntoView();
+  //     console.log(idx);
+  //     // setCurrentIdx((prev) => prev++);
+  //   }, 10000);
+  // }
+  // carasoul();
+
+  return (
+    <div className="app">
+      <Home homeRef={homeRef} />
+      <Events eventsRef={eventsRef} />
     </div>
   );
-}
+};
 
 export default App;

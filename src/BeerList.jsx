@@ -12,7 +12,6 @@ const BeerList = ({ beerData }) => {
   const rightDrinkImg = Object.values(beerData).slice(12, 17);
 
   const imgMap = (e) => {
-    console.log(e);
     switch (e.toLowerCase()) {
       case "light":
         return light;
@@ -26,9 +25,9 @@ const BeerList = ({ beerData }) => {
   };
 
   return (
-    <div className="beer-container">
+    <div className="beer-list-container">
       {/* left list */}
-      <div className="beer-item-container">
+      <div className="beer-list-left-container">
         {leftList.map((beer, idx) => {
           return (
             <BeerItem
@@ -41,7 +40,7 @@ const BeerList = ({ beerData }) => {
         })}
       </div>
       {/* right list */}
-      <div className="beer-item-container">
+      <div className="beer-list-right-container">
         {rightList.map((beer, idx) => {
           return (
             <BeerItem
