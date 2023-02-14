@@ -1,0 +1,14 @@
+version: "3.7"
+services:
+  shawnwebapp:
+    container_name: growlerz-taplist
+    build:
+      context: .
+      # dockerfile: Dockerfile
+    volumes:
+      - ".:/app"
+      - "/app/node_modules"
+    ports:
+      - "3050:5173"
+    env_file:
+      - ./.env.local

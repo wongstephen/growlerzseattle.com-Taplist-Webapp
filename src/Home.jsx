@@ -32,7 +32,7 @@ function Home() {
     }
   `;
 
-  const [beerData, setBeerData] = useState({});
+
   const [data, error, loading] = useAxios({
     axiosInstance: axios,
     method: "POST",
